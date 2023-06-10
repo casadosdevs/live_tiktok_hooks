@@ -3,7 +3,7 @@ import { GlobalContext } from "@/context/GlobalContext";
 import { useContext, useState } from "react";
 
 const HookUseState = () => {
-  const { casa } = useContext(GlobalContext)
+  const { status, authenticated } = useContext(GlobalContext)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -29,17 +29,22 @@ const HookUseState = () => {
 
     setMessage(`Olá, ${name}, você se inscreveu na Casa dos Devs com o e-mail ${email}`)
   }
-  return (
-    <form onSubmit={handleSubmit}>
-      <h1>Cadastre-se na Newsletter - {casa}!</h1>
-      <input type="text" onChange={handleName} />
-      <input type="email" onChange={handleEmail} />
-      <button type="submit">
-        Cadastrar-se
-      </button>
-      {message}
-    </form>
-  );
+
+  if (authenticated) {
+    return (
+      <form onSubmit={handleSubmit}>
+        <h1>{status}</h1>
+        <input type="text" onChange={handleName} />
+        <input type="email" onChange={handleEmail} />
+        <button type="submit">
+          Cadastrar-se
+        </button>
+        {message}
+      </form>
+    );
+  } else {
+    return(<h1>{status}</h1>)
+  }
 }
 
 export default HookUseState

@@ -1,4 +1,4 @@
-import { ContextoGlobal } from '@/context/GlobalContext'
+import { GeneralContext } from '@/context/GlobalContext'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -13,9 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ContextoGlobal>
+        <GeneralContext>
           {children}
-        </ContextoGlobal>
+        </GeneralContext>
       </body>
     </html>
   )
