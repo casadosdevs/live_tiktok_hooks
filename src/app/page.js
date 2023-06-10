@@ -1,6 +1,5 @@
-import HookUseEffect from "@/components/hookUseEffect";
-import HookUseState from "@/components/hookUseState";
-
+import HookUseEffect from "@/components/HookUseEffect";
+import HookUseState from "@/components/HookUseState";
 
 export default function Home() {
   return (
