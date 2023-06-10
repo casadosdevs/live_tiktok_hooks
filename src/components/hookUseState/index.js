@@ -1,7 +1,9 @@
 'use client';
-import { useState } from "react";
+import { GlobalContext } from "@/context/GlobalContext";
+import { useContext, useState } from "react";
 
 const HookUseState = () => {
+  const { casa } = useContext(GlobalContext)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -29,7 +31,7 @@ const HookUseState = () => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Cadastre-se na Newsletter!</h1>
+      <h1>Cadastre-se na Newsletter - {casa}!</h1>
       <input type="text" onChange={handleName} />
       <input type="email" onChange={handleEmail} />
       <button type="submit">

@@ -1,7 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { GlobalContext } from '@/context/GlobalContext'
+import { useContext, useEffect, useState } from 'react'
 
 const HookUseEffect = () => {
+  const { logar, deslogar } = useContext(GlobalContext)
+
   const [tiktok, setTiktok] = useState(0)
   const [youtube, setYoutube] = useState(0)
   
@@ -15,11 +18,18 @@ const HookUseEffect = () => {
 
   return (
     <div>
+      {console.log('MEU COMPONENTE')}
       <button onClick={() => setTiktok(tiktok + 1)}>
         Aumenta Tiktok {tiktok}
       </button>
       <button onClick={() => setYoutube(youtube + 1)}>
         Aumenta Youtube {youtube}
+      </button>
+      <button onClick={() => logar()}>
+        Logar
+      </button>
+      <button onClick={() => deslogar()}>
+        Deslogar
       </button>
     </div>
   )
